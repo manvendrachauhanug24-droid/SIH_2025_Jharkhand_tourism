@@ -29,7 +29,14 @@
         <h1>Jharkhand Stories</h1>
         <p>Discover the heart of Jharkhand through stories</p>
     </header>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.navbar');
 
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
     <div class="container">
         <!-- Hero story -->
         <div class="hero">
