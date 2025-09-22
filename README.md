@@ -10,12 +10,12 @@ This README provides an overview of the project, including team details, relevan
 
 **Team Members:**
 
-- **MEMBER_1** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
-- **MEMBER_2** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
-- **MEMBER_3** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
-- **MEMBER_4** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
-- **MEMBER_5** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
-- **MEMBER_6** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
+- **Manvendra Singh Chauhan** - 2024UIC3547 - [@USERNAME](https://github.com/manvendrachauhanug24-droid)
+- **Sachin Kumar** - 2024UIC3511 - [@sachinkmr-hub](https://github.com/sachinkmr-hub)
+- **Megha** - 2024UCM2385 - [@MeghaPrajapati03](https://github.com/MeghaPrajapati03)
+- **Gargi Singh** - 2024UEC2662 - [@gargisingh603-sudo](https://github.com/gargisingh603-sudo)
+- **Jayant Garg** - 2024UEE4121 - [@jayant-source](https://github.com/jayant-source)
+- **MEMBER** - ROLL_NUMBER - [@USERNAME](https://github.com/USERNAME)
 
 ## Project Links
 
