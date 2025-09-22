@@ -93,12 +93,12 @@
                         <img src="content/plan/stay.png" alt="Stay Options">
                         <div class="story-content">
                             <h3>Stay</h3>
-                            <p>Discover the best stay and accommodation options.</p>
+                            <p>Discover the best Stay and accommodation options.</p>
                             <button>View Routes</button>
                         </div>
                     </div>
                     <div class="story-card">
-                        <img src="content/plan/tips.png" alt="Trip Tips">
+                        <img src="content/plan/tips.png" alt="Travel Tips">
                         <div class="story-content">
                             <h3>Tips</h3>
                             <p>Find authentic experiences, food, and cultural events during your trip.</p>
@@ -115,7 +115,7 @@
                 <h2>Stories</h2>
                 <div class="stories-grid">
                     <div class="story-card">
-                        <img src="content/stories/story1.jpg" alt="Hidden Waterfalls">
+                        <img src="content/stories/story1.png" alt="Hidden Waterfalls">
                         <div class="story-content">
                             <h3>The Hidden Waterfalls</h3>
                             <p>By Rakesh | Sep 20, 2025</p>
@@ -124,20 +124,11 @@
                         </div>
                     </div>
                     <div class="story-card">
-                        <img src="content/stories/story2.jpg" alt="Local Cuisine">
+                        <img src="content/stories/story2.png" alt="Local Cuisine">
                         <div class="story-content">
                             <h3>Local Cuisine Delights</h3>
                             <p>By Sita | Sep 18, 2025</p>
                             <p>Explore the flavors of Jharkhand’s traditional dishes...</p>
-                            <button>Read More</button>
-                        </div>
-                    </div>
-                    <div class="story-card">
-                        <img src="content/stories/story3.jpg" alt="Cultural Festivals">
-                        <div class="story-content">
-                            <h3>Cultural Festivals</h3>
-                            <p>By Priya | Sep 15, 2025</p>
-                            <p>Experience Jharkhand’s colorful festivals and rituals...</p>
                             <button>Read More</button>
                         </div>
                     </div>
@@ -159,23 +150,155 @@
     <footer>
         &copy; 2025 Jharkhand Travel. All rights reserved.
     </footer>
-
-    <!-- ================= CHATBOT ================= -->
-    <div id="chatbot">
-        <div id="chat-header"><b>Jharkhand AI Guide</b></div>
-        <div id="chat-body">
-            <div id="chat-log"></div>
-            <div style="display:flex; border-top:1px solid #ccc;">
-                <input id="user-input" type="text" placeholder="Ask me about Jharkhand..." onkeydown="if(event.key==='Enter'){sendMessage();}">
-                <button onclick="sendMessage()">➤</button>
-            </div>
+<!-- ================= Chatbot UI ================= -->
+<div id="chatbot">
+    <div id="chat-header"><b>Jharkhand AI Guide</b></div>
+    <div id="chat-body">
+        <div id="chat-log"></div>
+        <div style="display:flex; border-top:1px solid #ccc;">
+            <input id="user-input" type="text" placeholder="Ask me about Jharkhand..." />
+            <button onclick="sendMessage()">➤</button>
         </div>
     </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const chatHeader = document.getElementById("chat-header");
+    const chatBody = document.getElementById("chat-body");
+    const userInput = document.getElementById("user-input");
+
+    let collapsed = true;
+
+    // Initialize chatBody height
+    chatBody.style.display = "none";
+
+    chatHeader.addEventListener("click", () => {
+        if (collapsed) {
+            chatBody.style.display = "flex";
+            chatBody.style.flexDirection = "column";
+            chatBody.style.height = "400px";
+            userInput.focus();
+        } else {
+            chatBody.style.display = "none";
+        }
+        collapsed = !collapsed;
+    });
+
+    // Send message on Enter key
+    userInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") sendMessage();
+    });
+});
+
+// ================= Chatbot API =================
+const API_KEY = "YOUR_GEMINI_API_KEY"; // replace with your key
+const MODEL = "gemini-1.5-flash";
+const chatLog = document.getElementById("chat-log");
+
+let conversation = [{
+    role:"user",
+    parts:[{text:`
+You are a professional Jharkhand travel guide chatbot.
+Always answer directly with useful travel details.
+Use clear lists, bullet points, or day-wise itineraries.
+Keep sentences short (1–2 lines max).
+Do NOT ask the user extra questions unless they explicitly request advice.
+Focus on providing concrete recommendations: attractions, times, food, costs, tips.
+Write in a simple, friendly tone.
+`}]
+}];
+
+async function sendMessage() {
+    const userInput = document.getElementById("user-input");
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    // Add user message to chat
+    chatLog.innerHTML += `<div style="text-align:right; margin:6px 0;">
+        <span style="display:inline-block; background:#006400; color:white; padding:8px 12px; border-radius:12px 12px 0 12px; max-width:75%; font-size:14px; line-height:1.4;">${message}</span>
+    </div>`;
+    userInput.value = "";
+    conversation.push({ role:"user", parts:[{text:message}] });
+
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
+            method:"POST",
+            headers: { "Content-Type":"application/json" },
+            body: JSON.stringify({ contents: conversation })
+        });
+        const data = await response.json();
+        let reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn’t get a response.";
+
+        reply = reply.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
+                     .replace(/\* (.*?)(\n|$)/g, "<li>$1</li>")
+                     .replace(/\n/g, "<br>");
+        if (reply.includes("<li>")) reply = "<ul style='margin:6px 0; padding-left:18px;'>"+reply+"</ul>";
+
+        chatLog.innerHTML += `<div style="text-align:left; margin:6px 0;">
+            <span style="display:inline-block; background:#f0f0f0; color:#222; padding:8px 12px; border-radius:12px 12px 12px 0; max-width:75%; font-size:14px; line-height:1.4;">${reply}</span>
+        </div>`;
+        chatLog.scrollTop = chatLog.scrollHeight;
+        conversation.push({ role:"model", parts:[{text:reply}] });
+
+    } catch(err) {
+        chatLog.innerHTML += `<div style="color:red;"><b>Error:</b> ${err.message}</div>`;
+    }
+}
+</script>
 
     <!-- Emergency Alert Button -->
     <div id="alert-btn" onclick="sendAlert()">🚨 Alert</div>
 
-    <script src="script.js"></script>
+    <!-- ================= SCRIPTS ================= -->
+    <script>
+    // Hamburger Menu + Smooth Scroll
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+    hamburger.addEventListener('click', () => navbar.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            navbar.classList.remove('active');
+        });
+    });
+
+
+    async function sendMessage() {
+        const message = userInput.value.trim();
+        if(!message) return;
+        chatLog.innerHTML += `
+            <div style="text-align:right; margin:6px 0;">
+                <span style="display:inline-block; background:#006400; color:white; padding:8px 12px; border-radius:12px 12px 0 12px; max-width:75%; font-size:14px; line-height:1.4; word-wrap:break-word;">${message}</span>
+            </div>`;
+        userInput.value = "";
+        conversation.push({ role:"user", parts:[{text:message}] });
+
+        try {
+            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body: JSON.stringify({ contents: conversation })
+            });
+            const data = await res.json();
+            let reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn’t get a response.";
+            reply = reply.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
+                         .replace(/\* (.*?)(\n|$)/g, "<li>$1</li>")
+                         .replace(/\n/g, "<br>");
+            if(reply.includes("<li>")) reply = "<ul style='margin:6px 0; padding-left:18px;'>"+reply+"</ul>";
+
+            chatLog.innerHTML += `
+                <div style="text-align:left; margin:6px 0;">
+                    <span style="display:inline-block; background:#f0f0f0; color:#222; padding:8px 12px; border-radius:12px 12px 12px 0; max-width:75%; font-size:14px; line-height:1.4; word-wrap:break-word;">${reply}</span>
+                </div>`;
+            chatLog.scrollTop = chatLog.scrollHeight;
+            conversation.push({ role:"model", parts:[{text:reply}] });
+        } catch(err){
+            chatLog.innerHTML += `<div style="color:red;"><b>Error:</b> ${err.message}</div>`;
+        }
+    }
+    </script>
 
 </body>
 </html>

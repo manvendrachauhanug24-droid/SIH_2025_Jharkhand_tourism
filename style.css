@@ -77,7 +77,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* dark overlay */
 }
 
 .hero-content {
@@ -115,11 +115,13 @@ body {
 section {
     width: 100%;
     aspect-ratio: 16 / 9;
-    min-height: 400px;
-    padding: 0 20px;
+    min-height: 450px;
+    padding: 40px 20px;
     position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 section::before {
@@ -159,7 +161,7 @@ section::before {
 .stories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    gap: 30px;
     margin-top: 40px;
 }
 
@@ -213,30 +215,11 @@ section::before {
 }
 
 /* ================= ABOUT SECTION ================= */
-#about {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    min-height: 400px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-#about::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.3);
-    z-index: 0;
-}
-
 #about .about-content {
     position: relative;
     z-index: 1;
     max-width: 800px;
-    background: rgba(255,255,255,0.15); /* translucent background */
+    background: rgba(255,255,255,0.15); /* translucent */
     backdrop-filter: blur(10px);
     padding: 40px 30px;
     border-radius: 16px;
@@ -286,7 +269,7 @@ footer {
     flex-direction: column;
     font-family: Arial;
     z-index: 10000;
-    height: 40px;
+    height: 40px; /* collapsed by default */
     overflow: hidden;
     transition: height 0.3s ease;
 }
@@ -299,13 +282,11 @@ footer {
     cursor: pointer;
     font-size: 14px;
     text-align: center;
-    position: relative;
-    z-index: 10001;
 }
 
 #chat-body {
     flex: 1;
-    display: flex;
+    display: none; /* hidden by default */
     flex-direction: column;
     height: 400px;
 }
@@ -343,9 +324,5 @@ footer {
 
     .hamburger {
         display: flex;
-    }
-
-    .story-card img {
-        height: 180px;
     }
 }
