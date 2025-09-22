@@ -19,8 +19,8 @@ This README provides an overview of the project, including team details, relevan
 
 ## Project Links
 
-- **SIH Presentation:** [Final SIH Presentation](URL TO PPT UPLOADED TO GITHUB)
+- **SIH Presentation:** [Final SIH Presentation](https://drive.google.com/file/d/1B85CpECkpVnIFVHcWQrAtNDSgoAoIhPe/view?usp=drive_link)
 - **Video Demonstration:** [Watch Video](UNLISTED YOUTUBE LINK)
 - **Live Deployment:** [View Deployment](DEPLOYED LINK IF ANY)
-- **Source Code:** [GitHub Repository](GITHUB LINK TO THE REPO)
+- **Source Code:** [GitHub Repository](https://github.com/manvendrachauhanug24-droid/SIH_2025_Jharkhand_tourism)
 - **Additional Resources:** [Other Relevant Links](ANY OTHER RELEVANT LINKS)
