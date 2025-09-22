@@ -21,6 +21,6 @@ This README provides an overview of the project, including team details, relevan
 
 - **SIH Presentation:** [Final SIH Presentation](https://drive.google.com/file/d/1B85CpECkpVnIFVHcWQrAtNDSgoAoIhPe/view?usp=drive_link)
 - **Video Demonstration:** [Watch Video]( https://youtu.be/sHcNH1BdS64)
-- **Live Deployment:** [View Deployment](https://jharkhandtourism-iota.vercel.app/)
-- **Source Code:** [GitHub Repository](https://github.com/manvendrachauhanug24-droid/SIH_2025_Jharkhand_tourism)
+- **Live Deployment:** [View Deployment](https://sih-2025-jharkhand-tourism.vercel.app/)
+- **Source Code:** [GitHub Repository](https://github.com/manvendrachauhanug24-droid/SIH_205_Jharkhand_tourism)
 - **Additional Resources:** [Other Relevant Links](ANY OTHER RELEVANT LINKS)
