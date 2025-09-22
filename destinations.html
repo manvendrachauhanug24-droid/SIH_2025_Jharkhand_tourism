@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations | Incredible Jharkhand</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <header class="bg-green-800 text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Incredible Jharkhand</h1>
+    <nav class="space-x-4">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="destinations.html" class="hover:underline">Destinations</a>
+      <a href="plan.html" class="hover:underline">Plan Your Trip</a>
+      <a href="stories.html" class="hover:underline">Travel Stories</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-green-900 text-white text-center py-20">
+    <div class="absolute inset-0 bg-cover bg-center opacity-50"
+         style="background-image: url('content/destinations/hero-bg.png');">
+         <!-- TODO: Replace hero-bg.png with a collage of Jharkhand destinations -->
+    </div>
+    <div class="relative z-10">
+      <h2 class="text-5xl font-bold mb-4">Explore Jharkhand</h2>
+      <p class="max-w-2xl mx-auto text-lg">
+        From lush valleys to sacred temples, discover destinations that make Jharkhand truly incredible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="py-8 text-center">
+    <h3 class="text-2xl font-semibold mb-6">Choose Your Interest</h3>
+    <div class="flex flex-wrap justify-center gap-4">
+      <button class="category-btn px-5 py-2 bg-green-600 text-white rounded-full" data-category="all">All</button>
+      <button class="category-btn px-5 py-2 bg-gray-200 rounded-full" data-category="nature">Nature</button>
+      <button class="category-btn px-5 py-2 bg-gray-200 rounded-full" data-category="adventure">Adventure</button>
+      <button class="category-btn px-5 py-2 bg-gray-200 rounded-full" data-category="spiritual">Spiritual</button>
+      <button class="category-btn px-5 py-2 bg-gray-200 rounded-full" data-category="heritage">Heritage</button>
+      <button class="category-btn px-5 py-2 bg-gray-200 rounded-full" data-category="culture">Culture</button>
+    </div>
+  </section>
+
+  <!-- Destinations Grid -->
+  <section class="py-10 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Ranchi -->
+      <div class="destination-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition" data-category="nature culture">
+        <img src="content/destinations/ranchi.png" alt="Ranchi" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold">Ranchi</h4>
+          <p class="mt-2 text-gray-700">The capital city known for waterfalls, lakes, and vibrant culture.</p>
+        </div>
+      </div>
+
+      <!-- Netarhat -->
+      <div class="destination-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition" data-category="nature adventure">
+        <img src="content/destinations/netarhat.png" alt="Netarhat" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold">Netarhat</h4>
+          <p class="mt-2 text-gray-700">Popularly called the “Queen of Chotanagpur” with breathtaking sunsets.</p>
+        </div>
+      </div>
+
+      <!-- Hundru Falls -->
+      <div class="destination-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition" data-category="nature adventure">
+        <img src="content/destinations/hundru-falls.png" alt="Hundru Falls" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold">Hundru Falls</h4>
+          <p class="mt-2 text-gray-700">A stunning waterfall cascading 98 meters, perfect for nature lovers.</p>
+        </div>
+      </div>
+
+      <!-- Betla National Park -->
+      <div class="destination-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition" data-category="nature adventure">
+        <img src="content/destinations/betla.png" alt="Betla National Park" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold">Betla National Park</h4>
+          <p class="mt-2 text-gray-700">Home to tigers, elephants, and diverse flora & fauna.</p>
+        </div>
+      </div>
+
+      <!-- Baidyanath Dham -->
+      <div class="destination-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition" data-category="spiritual heritage">
+        <img src="content/destinations/baidyanath-dham.png" alt="Baidyanath Dham" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold">Baidyanath Dham</h4>
+          <p class="mt-2 text-gray-700">One of the 12 Jyotirlingas, an important pilgrimage destination.</p>
+        </div>
+      </div>
+
+      <!-- Patratu Valley -->
+      <div class="destination-card bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition" data-category="nature adventure">
+        <img src="content/destinations/patratu.png" alt="Patratu Valley" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold">Patratu Valley</h4>
+          <p class="mt-2 text-gray-700">Picturesque valley with winding roads, perfect for road trips.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-800 text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Incredible Jharkhand | All Rights Reserved</p>
+  </footer>
+
+  <!-- Filter Script -->
+  <script>
+    const buttons = document.querySelectorAll(".category-btn");
+    const cards = document.querySelectorAll(".destination-card");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // reset button styles
+        buttons.forEach(b => b.classList.remove("bg-green-600","text-white"));
+        buttons.forEach(b => b.classList.add("bg-gray-200"));
+
+        // activate selected button
+        btn.classList.remove("bg-gray-200");
+        btn.classList.add("bg-green-600","text-white");
+
+        const category = btn.getAttribute("data-category");
+
+        cards.forEach(card => {
+          const categories = card.getAttribute("data-category").split(" ");
+          if (category === "all" || categories.includes(category)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

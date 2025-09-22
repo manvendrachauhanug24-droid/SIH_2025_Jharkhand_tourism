@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Travel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Jharkhand</h1>
+        <p>Explore culture, nature, and stories from the heart of India</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Jharkhand</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destination">Destination</a></li>
+                <li><a href="#plan">Plan</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <img src="content/home/hero-bg.png" alt="Jharkhand Nature">
+            <div class="hero-content">
+                <h2>Discover the Beauty of Jharkhand</h2>
+                <p>By Admin | Sep 22, 2025</p>
+                <p>Jharkhand’s dense forests and waterfalls hide countless tales. Explore the region through this in-depth story...</p>
+                <button>Read More</button>
+            </div>
+        </section>
+
+        <!-- Destination Section -->
+        <section id="destination">
+            <h2>Top Destinations</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <img src="content/destinations/belta.jpg" alt="Destination 1">
+                    <div class="story-content">
+                        <h3>Betla National Park</h3>
+                        <p>Explore wildlife and forest trails in Betla National Park.</p>
+                        <button>Learn More</button>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="content/destinations/hundru.jpg" alt="Destination 2">
+                    <div class="story-content">
+                        <h3>Hundru Falls</h3>
+                        <p>A stunning waterfall cascading 98 meters, perfect for nature lovers.</p>
+                        <button>Learn More</button>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="content/destinations/ranchi.jpg" alt="Destination 3">
+                    <div class="story-content">
+                        <h3>Ranchi</h3>
+                        <p>The capital city known for waterfalls, lakes, and vibrant culture.</p>
+                        <button>Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan Section -->
+        <section id="plan">
+            <h2>Plan Your Trip</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <img src="content/plan/tips.png" alt="Plan 1">
+                    <div class="story-content">
+                        <h3>Best Time to Visit</h3>
+                        <p>Learn when to visit Jharkhand for perfect weather and festivals.</p>
+                        <button>View Tips</button>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="content/plan/stay.png" alt="Plan 2">
+                    <div class="story-content">
+                        <h3>Stay</h3>
+                        <p>Discover the best Stay and accomodation options.</p>
+                        <button>View Routes</button>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="content/plan/tips.png" alt="Plan 3">
+                    <div class="story-content">
+                        <h3>Tips</h3>
+                        <p>Find authentic experiences, food, and cultural events during your trip.</p>
+                        <button>Explore</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section id="stories">
+            <h2>Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <img src="content/stories/story1.jpg" alt="Story 1">
+                    <div class="story-content">
+                        <h3>The Hidden Waterfalls</h3>
+                        <p>By Rakesh | Sep 20, 2025</p>
+                        <p>Discover the most beautiful hidden waterfalls of Jharkhand...</p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="content/stories/story2.jpg" alt="Story 2">
+                    <div class="story-content">
+                        <h3>Local Cuisine Delights</h3>
+                        <p>By Sita | Sep 18, 2025</p>
+                        <p>Explore the flavors of Jharkhand’s traditional dishes...</p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Jharkhand</h2>
+            <p>Jharkhand is a land of forests, waterfalls, hills, and rich cultural heritage. Experience its unique beauty and traditions through stories, destinations, and travel guides.</p>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Jharkhand Travel. All rights reserved.
+    </footer>
+
+    <!-- Mobile Hamburger JS -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.navbar');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navbar links
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+                navbar.classList.remove('active'); // close menu on click
+            });
+        });
+    </script>
+
+</body>
+</html>
